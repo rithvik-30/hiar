@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin-top: 250px;
+            text-align: center;
+            background: linear-gradient(to right,yellow,green,red );
+        }
+        input{
+            padding: 10px;
+            margin: 5px;
+        }
+        button{
+            margin: 5px;
+            transition: all 0.3s ease;
+            background-color: aqua;
+        }
+        button:hover{
+            transform: translate(-4px,-4px);
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Arithematic operations</h1>
+    <input type="number" id="first" placeholder="enter first number"><br>
+    <input type="number" id="second" placeholder="enter second number"><br>
+    <button onclick="add()">+</button>
+    <button onclick="sub()">-</button>
+    <button onclick="mul()">*</button>
+    <button onclick="div()">/</button>
+    <button onclick="modulus()">%</button>
+    <p id="hi"></p>
+    <script>
+        const num1=document.getElementById("first");
+        const num2=document.getElementById("second");
+        const res=document.getElementById("hi");
+        function add(){
+            let result=parseInt(num1.value)+parseInt(num2.value);
+            res.textContent=("Result is "+result);
+        } 
+         function sub(){
+            let result=parseInt(num1.value)-parseInt(num2.value);
+            res.textContent=("Result is "+result);
+        } 
+         function mul(){
+            let result=parseInt(num1.value)*parseInt(num2.value);
+            res.textContent=("Result is "+result);
+        } 
+         function div(){
+            let result=parseInt(num1.value)/parseInt(num2.value);
+            res.textContent=("Result is "+result);
+        } 
+         function modulus(){
+            let result=parseInt(num1.value)%parseInt(num2.value);
+            res.textContent=("Result is "+result);
+        } 
+    </script>
+</body>
+</html>
