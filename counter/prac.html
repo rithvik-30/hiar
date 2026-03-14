@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            margin: 250px;
+        }
+        button{
+            transition: all 0.3s ease;
+        }
+        button:hover{
+            transform: translate(-5px,-5px);
+        }
+    </style>
+</head>
+<body>
+    <h1>Counter</h1>
+    <label id="number">0</label>
+    <div class="btn">
+        <button onclick="increase()">increment
+        </button>
+        <button onclick="decrease()">Decrment</button>
+        <button onclick="clear1()">clear</button>
+    </div>
+    <p id="result"></p>
+    <script>
+        const num=document.getElementById("number");
+        const res=document.getElementById("result");
+        let count=0;
+        function increase() {
+          count++;
+          num.textContent=(count);
+          res.textContent=("count incremented");
+        }
+        function decrease() {
+          count--;
+          num.textContent=(count);
+          res.textContent=("count decremented");
+        }
+        function clear1() {
+          count=0;
+          num.textContent=(count);
+          res.textContent=("count cleared");
+        }
+
+    </script>
+</body>
+</html>
