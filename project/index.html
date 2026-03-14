@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TATA IPL 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #F5A623;
+    --gold-dark: #D4881A;
+    --blue: #002B5B;
+    --blue-mid: #0A3D91;
+    --cyan: #00D4FF;
+    --red: #E8001D;
+    --bg: #060D1F;
+    --card: #0B1A35;
+    --border: rgba(245,166,35,0.2);
+    --text: #E8EDF5;
+    --muted: #7A8AA0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 64px;
+    background: rgba(6,13,31,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-badge {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: var(--blue);
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .logo-text span:first-child {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--gold);
+    letter-spacing: 3px;
+  }
+
+  .logo-text span:last-child {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    border-radius: 1px;
+  }
+
+  .nav-cta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn {
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+  }
+
+  .btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+  }
+  .btn-outline:hover { background: var(--gold); color: var(--blue); }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--blue);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(245,166,35,0.4); }
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 80px 40px 40px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(10,61,145,0.35) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 20% 80%, rgba(245,166,35,0.08) 0%, transparent 60%),
+      linear-gradient(180deg, #060D1F 0%, #08122A 100%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(245,166,35,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,166,35,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+
+  .hero-season-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(245,166,35,0.12);
+    border: 1px solid rgba(245,166,35,0.3);
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .hero-season-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: pulse 1.5s ease infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(64px, 8vw, 110px);
+    line-height: 0.9;
+    letter-spacing: 4px;
+    color: white;
+    margin-bottom: 8px;
+  }
+
+  .hero-title .highlight {
+    color: var(--gold);
+    -webkit-text-stroke: 0px;
+    text-shadow: 0 0 60px rgba(245,166,35,0.5);
+  }
+
+  .hero-subtitle {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 4vw, 50px);
+    color: var(--cyan);
+    letter-spacing: 6px;
+    margin-bottom: 24px;
+    opacity: 0.9;
+  }
+
+  .hero-desc {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 480px;
+    margin-bottom: 36px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 36px;
+  }
+
+  .stat-item { }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: 2px;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .hero-actions { display: flex; gap: 16px; }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .live-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .live-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--gold));
+  }
+
+  .live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: var(--red);
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  .live-dot {
+    width: 6px; height: 6px;
+    background: white;
+    border-radius: 50%;
+    animation: pulse 1s infinite;
+  }
+
+  .match-teams {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .team-info {
+    text-align: center;
+    flex: 1;
+  }
+
+  .team-badge {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 auto 8px;
+    border: 2px solid rgba(255,255,255,0.15);
+  }
+
+  .team-name-sm {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text);
+  }
+
+  .score-center {
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .score-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: white;
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+
+  .score-vs {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .match-info-bar {
+    background: rgba(255,255,255,0.04);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .match-info-bar span { color: var(--cyan); font-weight: 600; }
+
+  .points-preview {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .section-header-sm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+
+  .section-title-sm {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+  }
+
+  .view-all {
+    font-size: 12px;
+    color: var(--gold);
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .points-row {
+    display: grid;
+    grid-template-columns: 24px 1fr 40px 40px 40px;
+    gap: 8px;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 14px;
+  }
+
+  .points-row:last-child { border-bottom: none; }
+  .points-row.header { color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: 1px; }
+
+  .rank { color: var(--muted); font-size: 13px; }
+  .qualified .rank { color: var(--gold); font-weight: 700; }
+
+  .team-dot-name { display: flex; align-items: center; gap: 8px; }
+  .team-color-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+  .pts { text-align: center; font-weight: 700; color: var(--cyan); }
+  .wl { text-align: center; color: var(--muted); }
+  .nrr { text-align: center; color: var(--muted); font-size: 12px; }
+
+  .section {
+    padding: 80px 40px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .section-heading {
+    margin-bottom: 48px;
+  }
+
+  .section-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 64px);
+    letter-spacing: 3px;
+    color: white;
+    line-height: 1;
+  }
+
+  .section-title .dim { color: var(--muted); }
+
+  .teams-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+
+  .team-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .team-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .team-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(245,166,35,0.4);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+  }
+
+  .team-card:hover::after { opacity: 1; }
+
+  .team-logo {
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: white;
+    border: 2px solid rgba(255,255,255,0.15);
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .team-full-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+
+  .team-abbr-tag {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+
+  /* CSK */  .t-csk { background: linear-gradient(135deg, #1A1A2E, #16213E); } .t-csk .team-logo { background: #F9CD05; color: #1A1A2E; } .t-csk::after { background: #F9CD05; }
+  /* MI */   .t-mi  { background: linear-gradient(135deg, #1A1A2E, #0D1B3E); } .t-mi  .team-logo { background: #004FA3; color: #D4AF37; } .t-mi::after  { background: #004FA3; }
+  /* RCB */  .t-rcb { background: linear-gradient(135deg, #1A0A0A, #2A1010); } .t-rcb .team-logo { background: #C8102E; color: #F5C518; } .t-rcb::after { background: #C8102E; }
+  /* KKR */  .t-kkr { background: linear-gradient(135deg, #1A0D2E, #2D1A4A); } .t-kkr .team-logo { background: #3A225D; color: #F5A623; } .t-kkr::after { background: #3A225D; }
+  /* SRH */  .t-srh { background: linear-gradient(135deg, #1A0D00, #2A1500); } .t-srh .team-logo { background: #FF6700; color: #1A0D00; } .t-srh::after { background: #FF6700; }
+  /* RR */   .t-rr  { background: linear-gradient(135deg, #1A0A14, #2A1020); } .t-rr  .team-logo { background: #E91E8C; color: white;  } .t-rr::after  { background: #E91E8C; }
+  /* DC */   .t-dc  { background: linear-gradient(135deg, #0A0A1A, #0E1A3A); } .t-dc  .team-logo { background: #0078D4; color: #C8102E; } .t-dc::after  { background: #0078D4; }
+  /* PBKS */ .t-pbks{ background: linear-gradient(135deg, #1A0A0A, #2A1010); } .t-pbks .team-logo { background: #ED1B24; color: white;  } .t-pbks::after{ background: #ED1B24; }
+  /* GT */   .t-gt  { background: linear-gradient(135deg, #0A1414, #0F2020); } .t-gt  .team-logo { background: #1C4B82; color: #B8860B; } .t-gt::after  { background: #1C4B82; }
+  /* LSG */  .t-lsg { background: linear-gradient(135deg, #060D1F, #0A1428); } .t-lsg .team-logo { background: #A8C5E8; color: #0A1428; } .t-lsg::after { background: #A8C5E8; }
+
+  .schedule-tabs {
+    display: flex;
+    gap: 4px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 4px;
+    margin-bottom: 28px;
+    width: fit-content;
+  }
+
+  .tab {
+    padding: 8px 24px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--muted);
+    border: none;
+    background: transparent;
+  }
+
+  .tab.active {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--blue);
+  }
+
+  .tab:hover:not(.active) { color: var(--gold); }
+
+  .schedule-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .match-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 24px;
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    gap: 24px;
+    align-items: center;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .match-card:hover {
+    border-color: rgba(245,166,35,0.4);
+    background: rgba(11,26,53,0.9);
+    transform: translateX(4px);
+  }
+
+  .match-date-col {
+    text-align: center;
+    padding: 8px;
+    background: rgba(245,166,35,0.06);
+    border-radius: 6px;
+    border: 1px solid rgba(245,166,35,0.12);
+  }
+
+  .match-month {
+    font-size: 10px;
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .match-day-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: white;
+    line-height: 1;
+    letter-spacing: 1px;
+  }
+
+  .match-weekday {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  .match-teams-col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .match-teams-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .match-team-badge {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .match-team-name { font-size: 15px; font-weight: 700; color: var(--text); }
+  .match-vs-text { font-size: 11px; color: var(--muted); margin-left: 44px; letter-spacing: 1px; }
+  .match-venue { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .match-venue span { color: var(--cyan); }
+
+  .match-time-col {
+    text-align: right;
+  }
+
+  .match-time {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1px;
+  }
+
+  .match-time-zone { font-size: 11px; color: var(--muted); }
+
+  .match-result {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold);
+    text-align: right;
+    margin-top: 4px;
+  }
+
+  .completed-tag {
+    display: inline-block;
+    padding: 3px 8px;
+    background: rgba(0,212,255,0.1);
+    border: 1px solid rgba(0,212,255,0.2);
+    border-radius: 2px;
+    font-size: 10px;
+    color: var(--cyan);
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+ 
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .stats-panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .stats-panel-header {
+    padding: 18px 24px;
+    background: rgba(245,166,35,0.06);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .stats-icon {
+    width: 32px; height: 32px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .stats-panel-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+  }
+
+  .stats-list { padding: 8px 0; }
+
+  .stats-item {
+    display: grid;
+    grid-template-columns: 32px 1fr auto;
+    gap: 12px;
+    align-items: center;
+    padding: 10px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    transition: background 0.2s;
+  }
+
+  .stats-item:hover { background: rgba(245,166,35,0.04); }
+  .stats-item:last-child { border-bottom: none; }
+
+  .stats-rank {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+  .stats-rank.top { color: var(--gold); }
+
+  .stats-player { }
+  .stats-player-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .stats-player-team {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  .stats-value {
+    text-align: right;
+  }
+  .stats-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--cyan);
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+  .stats-unit {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  /* CHAMPION BANNER */
+  .champion-section {
+    padding: 80px 40px;
+    background: linear-gradient(180deg, transparent, rgba(10,61,145,0.1), transparent);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .champion-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(245,166,35,0.06) 0%, transparent 70%);
+  }
+
+  .champion-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .champion-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .champion-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 6vw, 80px);
+    letter-spacing: 4px;
+    line-height: 0.95;
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  .champion-title .gold { color: var(--gold); }
+
+  .champion-desc {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 400px;
+  }
+
+  .champion-badge-large {
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #C8102E, #8B0000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    flex-direction: column;
+    border: 4px solid rgba(200,16,46,0.4);
+    box-shadow: 0 0 80px rgba(200,16,46,0.3), 0 0 40px rgba(245,166,35,0.2);
+    position: relative;
+  }
+
+  .champion-badge-large::after {
+    content: '🏆';
+    position: absolute;
+    top: -20px;
+    font-size: 36px;
+    filter: drop-shadow(0 0 12px rgba(245,166,35,0.6));
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .champion-abbr {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px;
+    color: white;
+    letter-spacing: 4px;
+    line-height: 1;
+  }
+
+  .champion-name-sm {
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .champion-trophy-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .trophy-stats {
+    display: flex;
+    gap: 32px;
+    margin-top: 12px;
+  }
+
+  .trophy-stat {
+    text-align: center;
+  }
+
+  .trophy-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+
+  .trophy-stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px;
+    text-align: center;
+  }
+
+  .footer-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 6px;
+    color: var(--gold);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(122,138,160,0.5);
+    letter-spacing: 1px;
+  }
+.team-logo{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.team-logo img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+
+
+ 
+  @media (max-width: 1024px) {
+    .teams-grid { grid-template-columns: repeat(5, 1fr); }
+    .hero-content { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .champion-inner { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 80px 20px 40px; }
+    .section { padding: 60px 20px; }
+    .teams-grid { grid-template-columns: repeat(2, 1fr); }
+    .match-card { grid-template-columns: 80px 1fr; }
+    .match-time-col { display: none; }
+    footer { padding: 32px 20px; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+  }
+
+  
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.6s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in:nth-child(1) { animation-delay: 0.1s; }
+  .fade-in:nth-child(2) { animation-delay: 0.2s; }
+  .fade-in:nth-child(3) { animation-delay: 0.3s; }
+  .fade-in:nth-child(4) { animation-delay: 0.4s; }
+  .fade-in:nth-child(5) { animation-delay: 0.5s; }
+  .fade-in:nth-child(6) { animation-delay: 0.6s; }
+  .fade-in:nth-child(7) { animation-delay: 0.7s; }
+  .fade-in:nth-child(8) { animation-delay: 0.8s; }
+  .fade-in:nth-child(9) { animation-delay: 0.9s; }
+  .fade-in:nth-child(10) { animation-delay: 1.0s; }
+.feedback-box{
+  max-width:600px;
+  margin:auto;
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:30px;
+  border-radius:10px;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.feedback-box input,
+.feedback-box textarea{
+  padding:12px;
+  background:#08122A;
+  border:1px solid rgba(245,166,35,0.2);
+  border-radius:6px;
+  color:white;
+  font-family:'Rajdhani',sans-serif;
+}
+
+.feedback-box textarea{
+  min-height:120px;
+  resize:none;
+}
+
+#feedbackResponse{
+  margin-top:10px;
+  font-weight:600;
+  color:#00FF9D;
+}
+  .ticker-wrap {
+    background: rgba(245,166,35,0.08);
+    border-top: 1px solid rgba(245,166,35,0.15);
+    border-bottom: 1px solid rgba(245,166,35,0.15);
+    padding: 10px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .ticker-inner {
+    display: inline-block;
+    animation: ticker 30s linear infinite;
+  }
+
+  .ticker-item {
+    display: inline-block;
+    padding: 0 40px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  .ticker-item .accent { color: var(--gold); }
+  .ticker-item .winner { color: #00FF9D; }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="logo-badge">IPL</div>
+    <div class="logo-text">
+      <span>TATA IPL</span>
+      <span>Season 2025 • Edition 18</span>
+    </div>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#teams">Teams</a></li>
+    <li><a href="#stats">Stats</a></li>
+    <li><a href="#points">Points Table</a></li>
+    <li><a href="#news">News</a></li>
+  </ul>
+
+  <div class="nav-cta">
+
+    <!-- SEARCH BAR -->
+    <input 
+      type="text"
+      id="teamSearch"
+      placeholder="Search teams..."
+      onkeyup="searchTeams()"
+      style="
+        padding:6px 10px;
+        border-radius:4px;
+        border:1px solid rgba(245,166,35,0.4);
+        background:#0B1A35;
+        color:white;
+        outline:none;
+        width:160px;
+        font-size:13px;
+      "
+    >
+
+    <a href="https://www.hotstar.com/in/tv/tata-ipl-tv/1540044879/live/watch" target="_blank" class="btn btn-outline">Watch Live</a>
+    <a href="https://www.jiohotstar.com" target="_blank" class="btn btn-primary">JioHotstar</a>
+
+  </div>
+</nav>
+
+<!-- TICKER -->
+<div style="margin-top: 64px;">
+  <div class="ticker-wrap">
+    <div class="ticker-inner">
+      <span class="ticker-item">🏆 <span class="winner">RCB WON IPL 2025!</span> Royal Challengers Bengaluru defeat Punjab Kings by 6 runs in final</span>
+      <span class="ticker-item">🟠 <span class="accent">Orange Cap:</span> Sai Sudharsan (GT) — 759 runs</span>
+      <span class="ticker-item">🟣 <span class="accent">Purple Cap:</span> Prasidh Krishna (GT) — 25 wickets</span>
+      <span class="ticker-item">⭐ <span class="accent">MVP:</span> Suryakumar Yadav (MI) — 717 runs</span>
+      <span class="ticker-item">📅 <span class="accent">IPL 2026:</span> 84 matches — Double round-robin format returns</span>
+      <span class="ticker-item">📺 <span class="accent">Final Viewership:</span> Record-breaking 169 million viewers on JioHotstar</span>
+      <span class="ticker-item">🏟️ <span class="accent">Grand Final:</span> Narendra Modi Stadium, Ahmedabad — Jun 3, 2025</span>
+
+      <span class="ticker-item">🏆 <span class="winner">RCB WON IPL 2025!</span> Royal Challengers Bengaluru defeat Punjab Kings by 6 runs in final</span>
+      <span class="ticker-item">🟠 <span class="accent">Orange Cap:</span> Sai Sudharsan (GT) — 759 runs</span>
+      <span class="ticker-item">🟣 <span class="accent">Purple Cap:</span> Prasidh Krishna (GT) — 25 wickets</span>
+      <span class="ticker-item">⭐ <span class="accent">MVP:</span> Suryakumar Yadav (MI) — 717 runs</span>
+      <span class="ticker-item">📅 <span class="accent">IPL 2026:</span> 84 matches — Double round-robin format returns</span>
+      <span class="ticker-item">📺 <span class="accent">Final Viewership:</span> Record-breaking 169 million viewers on JioHotstar</span>
+      <span class="ticker-item">🏟️ <span class="accent">Grand Final:</span> Narendra Modi Stadium, Ahmedabad — Jun 3, 2025</span>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-season-tag">TATA IPL 2025 — Edition 18</div>
+      <h1 class="hero-title">
+        INDIA'S<br>
+        BIGGEST<br>
+        <span class="highlight">CRICKET</span>
+      </h1>
+      <div class="hero-subtitle">SPECTACLE</div>
+      <p class="hero-desc">The most-watched Twenty20 cricket league in the world. 10 franchises. 74 matches. One champion. Relive the glory of IPL 2025.</p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">74</div>
+          <div class="stat-label">Matches</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">10</div>
+          <div class="stat-label">Teams</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">13</div>
+          <div class="stat-label">Venues</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">169M</div>
+          <div class="stat-label">Final Viewers</div>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="https://www.hotstar.com/in/sports/cricket/2025-rcb-vs-pbks-final-highlights/1540040398/video/highlights/watch?search_query=ipl+highlights+of+2025" target="_blank" class="btn btn-primary">View Highlights</a>
+        <a href="schedule.pdf" target="_blank" class="btn btn-outline">Full Schedule</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <!-- MATCH RESULT CARD -->
+      <div class="live-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 14px;">
+          <span class="completed-tag">FINAL • JUN 3, 2025</span>
+          <span style="font-size:12px; color:var(--muted);">Narendra Modi Stadium</span>
+        </div>
+        <div class="match-teams">
+          <div class="team-info">
+            <div class="team-badge" style="background: #C8102E; color: #F5C518;">RCB</div>
+            <div class="team-name-sm">Royal Challengers</div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:white;letter-spacing:1px;margin-top:6px;">187/8</div>
+            <div style="font-size:11px;color:var(--muted);">20 overs</div>
+          </div>
+          <div class="score-center">
+            <div style="font-size:28px; margin: 12px 0;">🏆</div>
+            <div style="font-size:11px;color:var(--gold);font-weight:700;letter-spacing:1px;">RCB WON</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:2px;">by 6 runs</div>
+          </div>
+          <div class="team-info">
+            <div class="team-badge" style="background: #ED1B24; color: white;">PBKS</div>
+            <div class="team-name-sm">Punjab Kings</div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:white;letter-spacing:1px;margin-top:6px;">181/7</div>
+            <div style="font-size:11px;color:var(--muted);">20 overs</div>
+          </div>
+        </div>
+        <div class="match-info-bar">
+          <span style="color:var(--muted);">Virat Kohli: <span>657 runs</span> this season</span>
+          <span style="color:var(--muted);">Josh Hazlewood: <span>22 wkts</span></span>
+        </div>
+      </div>
+
+      <div class="points-preview" id="points">
+        <div class="section-header-sm">
+          <span class="section-title-sm">Final Standings</span>
+          <a class="view-all" href="#">Full Table →</a>
+        </div>
+        <div class="points-row header">
+          <span>Team</span>
+          <span class="pts">PTS</span>
+          <span class="wl">W</span>
+          <span class="nrr">NRR</span>
+        </div>
+        <div class="points-row qualified"><span class="rank">1</span><div class="team-dot-name"><div class="team-color-dot" style="background:#C8102E;"></div><span>RCB 🏆</span></div><span class="pts">18</span><span class="wl">9</span><span class="nrr">+0.68</span></div>
+        <div class="points-row qualified"><span class="rank">2</span><div class="team-dot-name"><div class="team-color-dot" style="background:#ED1B24;"></div><span>PBKS</span></div><span class="pts">18</span><span class="wl">9</span><span class="nrr">+0.41</span></div>
+        <div class="points-row qualified"><span class="rank">3</span><div class="team-dot-name"><div class="team-color-dot" style="background:#1C4B82;"></div><span>GT</span></div><span class="pts">16</span><span class="wl">8</span><span class="nrr">+0.55</span></div>
+        <div class="points-row qualified"><span class="rank">4</span><div class="team-dot-name"><div class="team-color-dot" style="background:#004FA3;"></div><span>MI</span></div><span class="pts">14</span><span class="wl">7</span><span class="nrr">+0.22</span></div>
+        <div class="points-row"><span class="rank">5</span><div class="team-dot-name"><div class="team-color-dot" style="background:#F9CD05;"></div><span>CSK</span></div><span class="pts">12</span><span class="wl">6</span><span class="nrr">+0.10</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="teams">
+  <div class="section-heading">
+    <div class="section-eyebrow">IPL 2025 Franchises</div>
+    <h2 class="section-title">THE <span class="dim">10</span> TEAMS</h2>
+  </div>
+
+  <div class="teams-grid">
+
+    <!-- CSK -->
+    <div class="team-card t-csk fade-in">
+      <div class="team-logo">
+        <img src="csk logo.png" alt="CSK Logo">
+      </div>
+      <div class="team-full-name">Chennai Super Kings</div>
+      <div class="team-abbr-tag">RUTURAJ GAIKWAD</div>
+    </div>
+
+    <!-- MI -->
+    <div class="team-card t-mi fade-in">
+      <div class="team-logo">
+        <img src="mi logo.png" alt="MI Logo">
+      </div>
+      <div class="team-full-name">Mumbai Indians</div>
+      <div class="team-abbr-tag">HARDIK PANDYA</div>
+    </div>
+
+    <!-- RCB -->
+    <div class="team-card t-rcb fade-in">
+      <div class="team-logo">
+        <img src="rcb logo.png" alt="RCB Logo">
+      </div>
+      <div class="team-full-name">Royal Challengers Bengaluru</div>
+      <div class="team-abbr-tag">RAJAT PATIDAR ★</div>
+    </div>
+
+    <!-- KKR -->
+    <div class="team-card t-kkr fade-in">
+      <div class="team-logo">
+        <img src="kkr logo.png" alt="KKR Logo">
+      </div>
+      <div class="team-full-name">Kolkata Knight Riders</div>
+      <div class="team-abbr-tag">AJINKYA RAHANE</div>
+    </div>
+
+    <!-- SRH -->
+    <div class="team-card t-srh fade-in">
+      <div class="team-logo">
+        <img src="srh logo.png" alt="SRH Logo">
+      </div>
+      <div class="team-full-name">Sunrisers Hyderabad</div>
+      <div class="team-abbr-tag">PAT CUMMINS</div>
+    </div>
+
+    <!-- RR -->
+    <div class="team-card t-rr fade-in">
+      <div class="team-logo">
+        <img src="rr logo.png" alt="RR Logo">
+      </div>
+      <div class="team-full-name">Rajasthan Royals</div>
+      <div class="team-abbr-tag">SANJU SAMSON</div>
+    </div>
+
+    <!-- DC -->
+    <div class="team-card t-dc fade-in">
+      <div class="team-logo">
+        <img src="dc logo.jpeg" alt="DC Logo">
+      </div>
+      <div class="team-full-name">Delhi Capitals</div>
+      <div class="team-abbr-tag">AXAR PATEL</div>
+    </div>
+
+    <!-- PBKS -->
+    <div class="team-card t-pbks fade-in">
+      <div class="team-logo">
+        <img src="pbks logo.jpeg" alt="PBKS Logo">
+      </div>
+      <div class="team-full-name">Punjab Kings</div>
+      <div class="team-abbr-tag">SHREYAS IYER</div>
+    </div>
+
+    <!-- GT -->
+    <div class="team-card t-gt fade-in">
+      <div class="team-logo">
+        <img src="gt logo.png" alt="GT Logo">
+      </div>
+      <div class="team-full-name">Gujarat Titans</div>
+      <div class="team-abbr-tag">SHUBMAN GILL</div>
+    </div>
+
+    <!-- LSG -->
+    <div class="team-card t-lsg fade-in">
+      <div class="team-logo">
+        <img src="lsg logo.jpeg" alt="LSG Logo">
+      </div>
+      <div class="team-full-name">Lucknow Super Giants</div>
+      <div class="team-abbr-tag">RISHABH PANT</div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section" id="schedule" style="padding-top: 0;">
+  <div class="section-heading">
+    <div class="section-eyebrow">Match Fixtures</div>
+    <h2 class="section-title">SEASON <span class="dim">SCHEDULE</span></h2>
+  </div>
+  <div class="schedule-tabs">
+    <button class="tab" onclick="switchTab(this,'all')">All Matches</button>
+    <button class="tab active" onclick="switchTab(this,'results')">Results</button>
+    <button class="tab" onclick="switchTab(this,'playoffs')">Playoffs</button>
+  </div>
+  <div class="schedule-list" id="scheduleList">
+  </div>
+</section>
+
+<section class="section" id="stats" style="padding-top: 0;">
+  <div class="section-heading">
+    <div class="section-eyebrow">Season 2025 Leaders</div>
+    <h2 class="section-title">TOP <span class="dim">PERFORMERS</span></h2>
+  </div>
+  <div class="stats-grid">
+    <div class="stats-panel">
+      <div class="stats-panel-header">
+        <div class="stats-icon">🏏</div>
+        <span class="stats-panel-title">Orange Cap — Most Runs</span>
+      </div>
+      <div class="stats-list">
+        <div class="stats-item">
+          <span class="stats-rank top">1</span>
+          <div class="stats-player"><div class="stats-player-name">Sai Sudharsan</div><div class="stats-player-team">Gujarat Titans</div></div>
+          <div class="stats-value"><div class="stats-num">759</div><div class="stats-unit">RUNS</div></div>
+        </div>
+        <div class="stats-item">
+          <span class="stats-rank top">2</span>
+          <div class="stats-player"><div class="stats-player-name">Suryakumar Yadav</div><div class="stats-player-team">Mumbai Indians</div></div>
+          <div class="stats-value"><div class="stats-num">717</div><div class="stats-unit">RUNS</div></div>
+        </div>
+        <div class="stats-item">
+          <span class="stats-rank top">3</span>
+          <div class="stats-player"><div class="stats-player-name">Virat Kohli</div><div class="stats-player-team">Royal Challengers Bengaluru</div></div>
+          <div class="stats-value"><div class="stats-num">657</div><div class="stats-unit">RUNS</div></div>
+        </div>
+        <div class="stats-item">
+          <span class="stats-rank">4</span>
+          <div class="stats-player"><div class="stats-player-name">Rishabh Pant</div><div class="stats-player-team">Lucknow Super Giants</div></div>
+          <div class="stats-value"><div class="stats-num">612</div><div class="stats-unit">RUNS</div></div>
+        </div>
+        <div class="stats-item">
+          <span class="stats-rank">5</span>
+          <div class="stats-player"><div class="stats-player-name">Jos Buttler</div><div class="stats-player-team">Gujarat Titans</div></div>
+          <div class="stats-value"><div class="stats-num">589</div><div class="stats-unit">RUNS</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-panel">
+      <div class="stats-panel-header">
+        <div class="stats-icon">🎯</div>
+        <span class="stats-panel-title">Purple Cap — Most Wickets</span>
+      </div>
+      <div class="stats-list">
+        <div class="stats-item">
+          <span class="stats-rank top">1</span>
+          <div class="stats-player"><div class="stats-player-name">Prasidh Krishna</div><div class="stats-player-team">Gujarat Titans</div></div>
+          <div class="stats-value"><div class="stats-num">25</div><div class="stats-unit">WICKETS</div></div>
+        </div>
+        <div class="stats-item">
+          <span class="stats-rank top">2</span>
+          <div class="stats-player"><div class="stats-player-name">Noor Ahmad</div><div class="stats-player-team">Chennai Super Kings</div></div>
+          <div class="stats-value"><div class="stats-num">24</div><div class="stats-unit">WICKETS</div></div>
+        </div>
+        <div class="stats-item">
+          <span class="stats-rank top">3</span>
+          <div class="stats-player"><div class="stats-player-name">Josh Hazlewood</div><div class="stats-player-team">Royal Challengers Bengaluru</div></div>
+          <div class="stats-value"><div class="stats-num">22</div><div class="stats-unit">WICKETS</div></div>
+        </div>
+        <div class="stats-item">
+          <span class="stats-rank">4</span>
+          <div class="stats-player"><div class="stats-player-name">Jasprit Bumrah</div><div class="stats-player-team">Mumbai Indians</div></div>
+          <div class="stats-value"><div class="stats-num">21</div><div class="stats-unit">WICKETS</div></div>
+        </div>
+        <div class="stats-item">
+          <span class="stats-rank">5</span>
+          <div class="stats-player"><div class="stats-player-name">Mohammed Siraj</div><div class="stats-player-team">Royal Challengers Bengaluru</div></div>
+          <div class="stats-value"><div class="stats-num">19</div><div class="stats-unit">WICKETS</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAMPION -->
+<div class="champion-section">
+  <div class="champion-bg"></div>
+  <div class="champion-inner">
+    <div>
+      <div class="champion-label">🏆 IPL 2025 Champions</div>
+      <h2 class="champion-title">ROYAL<br>CHALLENGERS<br><span class="gold">BENGALURU</span></h2>
+      <p class="champion-desc">After 18 years of heartbreak, the wait is over. RCB clinch their maiden IPL title defeating Punjab Kings in a nail-biting final by just 6 runs at Narendra Modi Stadium on June 3, 2025.</p>
+      <button class="btn btn-primary" style="padding:12px 28px; font-size:15px;">Watch Highlights</button>
+    </div>
+    <div class="champion-trophy-area">
+      <div class="champion-badge-large">
+        <span class="champion-abbr">RCB</span>
+        <span class="champion-name-sm">Champions 2025</span>
+      </div>
+      <div class="trophy-stats">
+        <div class="trophy-stat">
+          <div class="trophy-stat-num">1st</div>
+          <div class="trophy-stat-label">IPL Title</div>
+        </div>
+        <div class="trophy-stat">
+          <div class="trophy-stat-num">18</div>
+          <div class="trophy-stat-label">Years Wait</div>
+        </div>
+        <div class="trophy-stat">
+          <div class="trophy-stat-num">6</div>
+          <div class="trophy-stat-label">Run Margin</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="section" id="feedback">
+  <div class="section-heading">
+    <div class="section-eyebrow">Fan Interaction</div>
+    <h2 class="section-title">FAN <span class="dim">FEEDBACK</span></h2>
+  </div>
+
+  <div class="feedback-box">
+
+    <input type="text" id="fanName" placeholder="Your Name">
+
+    <input type="email" id="fanEmail" placeholder="Your Email">
+
+    <textarea id="fanMessage" placeholder="Share your thoughts about IPL 2025..."></textarea>
+
+    <button class="btn btn-primary" onclick="submitFeedback()">Submit Feedback</button>
+
+    <p id="feedbackResponse"></p>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">TATA IPL 2025</div>
+    <ul class="footer-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Schedule</a></li>
+      <li><a href="#">Teams</a></li>
+      <li><a href="#">Stats</a></li>
+      <li><a href="#">News</a></li>
+      <li><a href="#">Videos</a></li>
+      <li><a href="#">Fantasy</a></li>
+      <li><a href="#">Tickets</a></li>
+    </ul>
+    <div style="display:flex; gap:16px;">
+<a href="https://www.jiohotstar.com" target="_blank" class="btn btn-outline">Watch on JioHotstar</a>
+<a href="https://www.starsports.com" target="_blank" class="btn btn-outline">Star Sports</a>
+    </div>
+    <p class="footer-copy">© 2026 RITHVIK</p>
+  </div>
+</footer>
+<script>
+const matches = [
+  { num:1,  date:'22 Mar', month:'MAR', day:'22', weekday:'SAT', time:'7:30 PM', home:'KKR', away:'RCB', homeColor:'#3A225D', awayColor:'#C8102E', venue:'Eden Gardens', city:'Kolkata', result:'RCB won by 7 wkts', type:'league' },
+  { num:2,  date:'23 Mar', month:'MAR', day:'23', weekday:'SUN', time:'3:30 PM', home:'SRH', away:'RR', homeColor:'#FF6700', awayColor:'#E91E8C', venue:'Rajiv Gandhi Stadium', city:'Hyderabad', result:'SRH won by 44 runs', type:'league' },
+  { num:3,  date:'23 Mar', month:'MAR', day:'23', weekday:'SUN', time:'7:30 PM', home:'CSK', away:'MI', homeColor:'#F9CD05', awayColor:'#004FA3', venue:'MA Chidambaram Stadium', city:'Chennai', result:'MI won by 5 wkts', type:'league' },
+  { num:4,  date:'24 Mar', month:'MAR', day:'24', weekday:'MON', time:'7:30 PM', home:'DC', away:'LSG', homeColor:'#0078D4', awayColor:'#A8C5E8', venue:'ACA-VDCA Stadium', city:'Visakhapatnam', result:'DC won by 37 runs', type:'league' },
+  { num:5,  date:'25 Mar', month:'MAR', day:'25', weekday:'TUE', time:'7:30 PM', home:'PBKS', away:'GT', homeColor:'#ED1B24', awayColor:'#1C4B82', venue:'Mullanpur Stadium', city:'Mohali', result:'GT won by 11 runs', type:'league' },
+  { num:6,  date:'26 Mar', month:'MAR', day:'26', weekday:'WED', time:'7:30 PM', home:'RR', away:'MI', homeColor:'#E91E8C', awayColor:'#004FA3', venue:'Sawai Mansingh Stadium', city:'Jaipur', result:'MI won by 6 wkts', type:'league' },
+
+  // LAST LEAGUE MATCHES
+  { num:'63', date:'18 May', month:'MAY', day:'18', weekday:'SUN', time:'7:30 PM', home:'LSG', away:'SRH', homeColor:'#A8C5E8', awayColor:'#FF6700', venue:'Ekana Stadium', city:'Lucknow', result:'SRH won by 7 wkts', type:'league' },
+  { num:'64', date:'19 May', month:'MAY', day:'19', weekday:'MON', time:'7:30 PM', home:'RCB', away:'KKR', homeColor:'#C8102E', awayColor:'#3A225D', venue:'M Chinnaswamy Stadium', city:'Bengaluru', result:'RCB won by 5 wkts', type:'league' },
+  { num:'65', date:'21 May', month:'MAY', day:'21', weekday:'WED', time:'7:30 PM', home:'PBKS', away:'RR', homeColor:'#ED1B24', awayColor:'#E91E8C', venue:'Mullanpur Stadium', city:'Mohali', result:'PBKS won by 6 wkts', type:'league' },
+
+  // PLAYOFFS
+  { num:'Q1', date:'29 May', month:'MAY', day:'29', weekday:'THU', time:'7:30 PM', home:'RCB', away:'PBKS', homeColor:'#C8102E', awayColor:'#ED1B24', venue:'New PCA Stadium', city:'New Chandigarh', result:'RCB won by 8 wkts', type:'playoffs' },
+  { num:'EL', date:'30 May', month:'MAY', day:'30', weekday:'FRI', time:'7:30 PM', home:'MI', away:'GT', homeColor:'#004FA3', awayColor:'#1C4B82', venue:'New PCA Stadium', city:'New Chandigarh', result:'MI won by 12 runs', type:'playoffs' },
+  { num:'Q2', date:'01 Jun', month:'JUN', day:'01', weekday:'SUN', time:'7:30 PM', home:'PBKS', away:'MI', homeColor:'#ED1B24', awayColor:'#004FA3', venue:'Narendra Modi Stadium', city:'Ahmedabad', result:'PBKS won by 5 wkts', type:'playoffs' },
+  { num:'F', date:'03 Jun', month:'JUN', day:'03', weekday:'TUE', time:'7:30 PM', home:'RCB', away:'PBKS', homeColor:'#C8102E', awayColor:'#ED1B24', venue:'Narendra Modi Stadium', city:'Ahmedabad', result:'RCB won by 6 runs 🏆', type:'playoffs' }
+];
+
+function renderMatches(filter) {
+  const list = document.getElementById('scheduleList');
+
+  let filtered = matches;
+
+  if(filter === 'playoffs') {
+    filtered = matches.filter(m => m.type === 'playoffs');
+  }
+
+  list.innerHTML = filtered.map(m => `
+    <div class="match-card">
+      <div class="match-date-col">
+        <div class="match-month">${m.month}</div>
+        <div class="match-day-num">${m.day}</div>
+        <div class="match-weekday">${m.weekday}</div>
+      </div>
+
+      <div class="match-teams-col">
+        <div class="match-teams-row">
+          <div class="match-team-badge" style="background:${m.homeColor}">${m.home}</div>
+          <span class="match-team-name">${m.home}</span>
+        </div>
+
+        <div class="match-vs-text">vs</div>
+
+        <div class="match-teams-row">
+          <div class="match-team-badge" style="background:${m.awayColor}">${m.away}</div>
+          <span class="match-team-name">${m.away}</span>
+        </div>
+
+        <div class="match-venue">📍 <span>${m.venue}</span>, ${m.city}</div>
+      </div>
+
+      <div class="match-time-col">
+        <div class="completed-tag">RESULT</div>
+        <div class="match-result">${m.result}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function switchTab(el, filter) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  renderMatches(filter);
+}
+
+renderMatches('results');
+// SEARCH TEAM FUNCTION
+function searchTeams() {
+
+  let input = document.getElementById("teamSearch").value.toLowerCase().trim();
+  let teams = document.querySelectorAll(".team-card");
+
+  teams.forEach(team => {
+
+    let name = team.innerText.toLowerCase();
+
+    if(name.includes(input) && input !== ""){
+      team.style.display = "";
+
+      // Scroll to the matched team
+      team.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
+    } 
+    else{
+      team.style.display = "none";
+    }
+
+  });
+
+}
+function submitFeedback(){
+
+  let name = document.getElementById("fanName").value;
+  let email = document.getElementById("fanEmail").value;
+  let message = document.getElementById("fanMessage").value;
+
+  if(name === "" || email === "" || message === ""){
+    alert("Please fill all fields!");
+    return;
+  }
+
+  document.getElementById("feedbackResponse").innerText =
+    "Thank you " + name + "! Your feedback has been received.";
+
+  document.getElementById("fanName").value="";
+  document.getElementById("fanEmail").value="";
+  document.getElementById("fanMessage").value="";
+}
+</script>
+</body>
+</html>

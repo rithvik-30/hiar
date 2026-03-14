@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML & CSS Practice Files</title>
+<style>
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #0f172a;
+    color: white;
+    padding: 60px 20px;
+}
+
+/* CENTER CONTENT */
+.wrapper {
+    max-width: 1000px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #38bdf8;
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.file-card {
+    background-color: #1e293b;
+    padding: 30px 20px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #334155;
+    transition: 0.3s ease;
+}
+
+.file-card:hover {
+    transform: translateY(-6px);
+    background-color: #334155;
+    border-color: #38bdf8;
+}
+
+.file-card a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.file-card a:hover {
+    color: #38bdf8;
+}
+</style>
+</head>
+
+</head>
+<body>
+<div class="wrapper">
+    <h1>HTML & CSS Practice Files</h1>
+
+    <div class="container">
+
+        <div class="file-card"><a href="../18MART/index.html" target="_blank">18 Mart</a></div>
+        <div class="file-card"><a href="../animations/animations.html" target="_blank">Animations</a></div>
+        <div class="file-card"><a href="../bootstrap/bootstrap2.html" target="_blank">Bootstrap</a></div>
+        <div class="file-card"><a href="../card hw/index.html" target="_blank">Motivational Card</a></div>
+        <div class="file-card"><a href="../chatbox/index.html" target="_blank">Chat Box</a></div>
+        <div class="file-card"><a href="../formcreation/index.html" target="_blank">Form 1</a></div>
+        <div class="file-card"><a href="../form ha/index.html" target="_blank">Form 2</a></div>
+        <div class="file-card"><a href="../klh grid/index.html" target="_blank">KLH Promo</a></div>
+        <div class="file-card"><a href="../lists/index.html" target="_blank">Lists</a></div>
+        <div class="file-card"><a href="../media querie/mediaqueries.html" target="_blank">Media Queries</a></div>
+        <div class="file-card"><a href="../media tags/index.html" target="_blank">Media & Semantic Tags</a></div>
+        <div class="file-card"><a href="../menu-items/index.html" target="_blank">Food Menu</a></div>
+        <div class="file-card"><a href="../nav tag project/index.html" target="_blank">Nav Tag Project</a></div>
+        <div class="file-card"><a href="../Table/timetable.html" target="_blank">Table</a></div>
+
+    </div>
+</div>
+<a href="index.html" class="back-btn">⬅ Back to Portfolio</a>
+</body>
+</html>

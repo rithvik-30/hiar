@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            background: linear-gradient(to right,blue,yellow,green);
+        }
+        input{
+            margin: 10px;
+            padding: 5px;
+        }
+        button{
+            transition: all 0.3s ease;
+        }
+        button:hover{
+            transform: translate(-4px,-4px);
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple interest calc</h1>
+    <input type="number" placeholder="enter principal" id="principal"><br>
+    <input type="number" placeholder="enter rate" id="rate"><br>
+    <input type="number" placeholder="enter time (in years)" id="time"><br>
+    <button onclick="calc()">Calculate</button>
+    <p id="result"></p>
+    <script>
+        const pr=document.getElementById("principal");
+        const r=document.getElementById("rate");
+        const t=document.getElementById("time");
+        const display=document.getElementById("result");
+      function calc(){
+         let result=(parseInt(pr.value)*parseInt(r.value)*parseInt(t.value))/100;
+         display.textContent=(result);
+      }
+    </script>
+</body>
+</html>

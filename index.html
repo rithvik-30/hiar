@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rithvik Portfolio</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<style>
+/* ===== BASIC RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1e293b;
+  padding: 15px 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: #38bdf8;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 180px;
+  height: 100%;
+  background-color: #1e293b;
+  padding-top: 30px;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  gap: 10px;
+  font-size: 14px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #334155;
+  transform: translateX(5px);
+}
+
+/* ===== SIDEBAR PROFILE ===== */
+.profile-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #38bdf8;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+.profile-pic:hover {
+  box-shadow: 0 0 15px #38bdf8;
+}
+
+.profile-section h4 {
+  color: #38bdf8;
+  font-size: 18px;
+}
+
+.icon {
+  width: 18px;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main {
+  margin-left: 200px;
+  padding: 100px 40px;
+}
+
+section {
+  margin-bottom: 80px;
+  scroll-margin-top: 90px;
+}
+
+/* ===== SECTION CARD ===== */
+.section-card {
+  background-color: #1e293b;
+  padding: 30px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  overflow: hidden;
+  animation: fadeIn 1s ease;
+}
+
+.project-card {
+  background-color: #334155;
+  padding: 20px;
+  margin-top: 15px;
+  border-radius: 6px;
+  animation: fadeIn 1s ease;
+  transition: 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+}
+
+
+.project-card h3 {
+  margin-bottom: 8px;
+  color: #38bdf8;
+}
+
+/* ===== HERO ===== */
+#home h2 {
+  font-size: 36px;
+  color: #38bdf8;
+  margin-bottom: 10px;
+}
+
+#home p {
+  margin-top: 5px;
+}
+
+/* ===== CERTIFICATES ===== */
+.cert-container {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.cert-card {
+  background-color: #334155;
+  padding: 15px;
+  border-radius: 10px;
+  width: 260px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.cert-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.cert-card p {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.cert-card:hover {
+  transform: translateY(-8px);
+  background-color: #38bdf8;
+}
+
+.cert-card:hover p {
+  color: black;
+}
+
+/* ===== HOBBIES ===== */
+.hobby-tags {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hobby {
+  background-color: #334155;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.hobby:hover {
+  background-color: #38bdf8;
+  color: black;
+  transform: translateY(-4px);
+}
+
+/* ===== SUBTITLE ===== */
+.section-subtitle {
+  margin-top: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* ===== FADE ANIMATION ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+#education {
+  text-align: center;
+}
+.edu-slider {
+  width: 60%;
+  margin: 20px auto;
+  display: block;
+}
+.section-card {
+  background-color: #1e293b;
+  padding: 30px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  animation: fadeIn 1s ease;
+  transition: 0.3s ease;
+}
+
+.section-card:hover {
+  transform: translateY(-8px);
+}
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #1e293b;
+  color: #cbd5e1;
+  margin-top: 50px;
+  border-top: 1px solid #334155;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.project-card {
+  background-color: #334155;
+  padding: 20px;
+  margin-top: 15px;
+  border-radius: 6px;
+  animation: fadeIn 1s ease;
+  transition: 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-container">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- SIDEBAR -->
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+  <div class="profile-section">
+    <img src="WhatsApp Image 2026-02-19 at 8.36.14 PM.jpeg" alt="Profile Photo" class="profile-pic">
+    <h4>Rithvik</h4>
+  </div>
+
+  <a href="https://www.codechef.com/users/rithvik126" target="_blank">
+    <img src="download (3).jpeg" class="icon"> CodeChef
+  </a>
+
+  <a href="https://www.hackerrank.com/profile/Rithvik126" target="_blank">
+    <img src="download (1) copy 2.jpeg" class="icon"> HackerRank
+  </a>
+
+  <a href="#certificates">
+    <img src="download (3).png" class="icon"> Certificates
+  </a>
+
+  <a href="mailto:vuppala.rithvik@gmail.com">
+    <img src="download (2).jpeg" class="icon"> Email
+  </a>
+
+</div>
+
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+  <!-- HOME -->
+  <section id="home">
+    <h2>Hi, I'm Rithvik 👋</h2>
+    <p>First Year CSE Student | Learning Web Development & DSA</p>
+    <p>Passionate about coding, competitive programming, and building projects.</p>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section-card">
+    <h2>About Me</h2>
+    <p>I am a first-year Computer Science student currently learning HTML, CSS, Java, and Data Structures.</p>
+    <p>My goal is to become a strong problem solver and full-stack developer.</p>
+  </section>
+
+  <!-- SKILLS -->
+<!-- SKILLS -->
+<section id="skills" class="section-card">
+  <h2>Skills</h2>
+
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <a href="htmlfiles.html" target="_blank">
+      <img src="download.png" class="d-block  w-50 mx-auto rounded-5" alt="...">
+      </a>
+    </div>
+    <a href="htmlfiles.html" target="_blank">
+    <div class="carousel-item">
+      <img src="download (1).png" class="d-block  w-50 mx-auto rounded-5" alt="..." height="450px">
+    </a>
+    </div>
+    <div class="carousel-item">
+      <a href="js.html" target="_blank">
+      <img src="download (2).png" class="d-block  w-50 mx-auto rounded-5" alt="...">
+      </a>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+</section>
+
+
+  <!-- PROJECTS -->
+  <section id="projects" >
+    <h2>Projects</h2>
+
+    <div class="project-card">
+      <h3><a href="project/index.html" target="_blank"> Website Clone </a></h3>
+      <p>Created a front-end IPL themed website using HTML and CSS.</p>
+    </div>
+
+    <div class="project-card">
+      <h3><a href="https://nut-caro-copy-fba44a87.base44.app" target="_blank">Nutcaro-DTI Project</h3></a>
+      <p>Designed a website for buying nutritional food and a nutritional wellbeing social platform</p>
+    </div>
+
+    <div class="project-card">
+      <h3>Linked List in Java</h3>
+      <p>Implemented singly linked list operations like insertion, deletion, and sorting.</p>
+    </div>
+
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section-card">
+  <h2>Education</h2>
+  <p class="section-subtitle">Drag the slider to explore my journey 🎓</p>
+
+  <input type="range"
+         min="0"
+         max="100"
+         value="0"
+         id="eduSlider"
+         oninput="updateEdu(this.value)"
+         style="width:100%; margin-top:15px;">
+
+  <div id="eduCard" class="edu-card">
+    <p>👆 Drag the slider to see my education details</p>
+  </div>
+</section>
+
+<section id="certificates" class="section-card">
+  <h2>Certificates</h2>
+  <p class="section-subtitle">
+    A few certifications that reflect my learning journey 📜
+  </p>
+
+  <div class="cert-container">
+
+    <div class="cert-card">
+      <a href="rithvik126-500 difficulty rating.pdf" target="_blank">
+        <img src="Screenshot 2026-02-19 195015.png" alt="CodeChef Certificate">
+        <p>CodeChef Achievement</p>
+      </a>
+    </div>
+
+    <div class="cert-card">
+      <a href="participate (1).pdf" target="_blank">
+        <img src="part.jpeg" alt="HackerRank Certificate">
+        <p>DATATHON WINNERS</p>
+      </a>
+    </div>
+
+    <div class="cert-card">
+      <a href="win.pdf" target="_blank">
+        <img src="win.jpeg" alt="Web Certificate">
+        <p>DATATHON Participation</p>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+  <section id="hobbies" class="section-card">
+  <h2>Hobbies</h2>
+  <div class="hobby-tags">
+    <span class="hobby">💻 Coding</span>
+    <span class="hobby">🏓 Playing Table Tennis</span>
+    <span class="hobby">🧠 Problem Solving</span>
+    <span class="hobby">🚀 Learning New Technologies</span>
+    <span class="hobby">🎨 UI Designing</span>
+  </div>
+</section>
+
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact section-card">
+    <h2>Contact</h2>
+    <a href="mailto:yourmail@gmail.com">vuppala.rithvik@gmail.com</a>
+    <br>
+    <a href="tel:7675054385">7675054385</a>
+
+  </section>
+
+</div>
+<script>
+function updateEdu(value) {
+
+  const card = document.getElementById("eduCard");
+
+  if (value == 0) {
+    card.innerHTML = `
+      <p>👆 Drag the slider to see my education details</p>
+    `;
+  }
+
+  else if (value <= 32) {
+    card.innerHTML = `
+      <img src="globaledge.png" alt="School">
+      <h3>10th Grade - TGES</h3>
+      <p>Completed in 2023</p>
+    `;
+  }
+
+  else if (value <= 65) {
+    card.innerHTML = `
+      <img src="resonance.png" alt="Intermediate">
+      <h3>12th Grade - Resonance</h3>
+      <p>Completed in 2025</p>
+    `;
+  }
+
+  else {
+    card.innerHTML = `
+      <img src="klhlogo.jpeg" alt="University">
+      <h3>B.Tech - KLH University</h3>
+      <p>2025 – 2029</p>
+    `;
+  }
+
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<footer class="footer">
+  <p>© 2026 Rithvik. All Rights Reserved.</p>
+</footer>
+</body>
+</html>
